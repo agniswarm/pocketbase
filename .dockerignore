@@ -1,0 +1,43 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+CHANGELOG*.md
+LICENSE.md
+CONTRIBUTING.md
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Build artifacts
+pocketbase
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test files
+*_test.go
+tests/
+
+# UI files - needed for build, but exclude node_modules and dist (will be rebuilt)
+ui/node_modules/
+ui/dist/
+
+# Data directories (will be mounted as volumes)
+pb_data/
+pb_public/
+pb_hooks/
+
+# Go specific
+*.mod.sum.bak
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,18 @@
+services:
+  pocketbase:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pocketbase
+    ports:
+      - "8090:8090"
+    volumes:
+      # Persist PocketBase data
+      - ./pb_data:/app/pb_data
+      # Optional: Mount hooks directory if you have custom JS hooks
+      # - ./pb_hooks:/app/pb_hooks
+    environment:
+      - PB_ENCRYPTION_KEY=your-32-character-encryption-key-here
+    restart: unless-stopped
+    # Note: Healthcheck removed because scratch image has no shell or utilities
+    # Docker will still monitor container status, but HTTP healthchecks aren't possible
